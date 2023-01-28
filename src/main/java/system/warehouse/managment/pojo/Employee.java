@@ -1,20 +1,35 @@
 package system.warehouse.managment.pojo;
 
-public class Employee {
-    private Integer id;
-    private String name;
-    private String contactName;
-    private String phone;
-    private String email;
-    private String role;
+import jakarta.persistence.*;
 
-    public Employee(Integer id, String name, String contactName, String phone, String email, String role) {
+@Entity
+@Table(name="employees")
+public class Employee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "phone")
+    private String phone;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "role")
+    private String role;
+    @Column(name = "salary")
+    private Integer salary;
+
+    public Employee(Integer id, String name, String phone, String email, String role, Integer salary) {
         this.id = id;
         this.name = name;
-        this.contactName = contactName;
         this.phone = phone;
         this.email = email;
         this.role = role;
+        this.salary = salary;
+    }
+
+    public Employee() {
+
     }
 
     //getters and setters
@@ -32,14 +47,6 @@ public class Employee {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getContactName() {
-        return contactName;
-    }
-
-    public void setContactName(String contactName) {
-        this.contactName = contactName;
     }
 
     public String getPhone() {

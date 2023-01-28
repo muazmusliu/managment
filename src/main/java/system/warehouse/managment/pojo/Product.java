@@ -10,27 +10,22 @@ public class Product {
     private Integer id;
     @Column(name = "name")
     private String name;
-
     @Column(name = "description")
     private String description;
     @Column(name = "sku_number")
     private Integer skuNumber;
     @Column(name = "price")
     private Double price;
-
     @Column(name = "measuring_unit")
     private Double measuringUnit;
-    @Column(name = "stock")
-    private Integer stock;
 
-    public Product(Integer id, String name, String description, Integer skuNumber, Double price, Double measuringUnit, Integer stock) {
+    public Product(Integer id, String name, String description, Integer skuNumber, Double price, Double measuringUnit) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.skuNumber = skuNumber;
         this.price = price;
         this.measuringUnit = measuringUnit;
-        this.stock = stock;
     }
 
     public Product() {
@@ -67,14 +62,6 @@ public class Product {
 
     public void setMeasuringUnit(Double measuringUnit) {
         this.measuringUnit = measuringUnit;
-    }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(Integer stock) {
-        this.stock = stock;
     }
 
     public Integer getSkuNumber() {

@@ -1,12 +1,23 @@
 package system.warehouse.managment.pojo;
 
+import jakarta.persistence.*;
+
 import java.util.List;
 
+@Entity
+@Table(name="orders")
 public class Order {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "order_number")
     private String orderNumber;
+    @ManyToOne
+    @JoinColumn(name = "costumer_id")
     private Customer customer;
+    @OneToMany
     private List<Product> products;
+    @Column(name = "status")
     private String status;
 
     public Order(Integer id, String orderNumber, Customer customer, List<Product> products, String status) {
@@ -15,6 +26,10 @@ public class Order {
         this.customer = customer;
         this.products = products;
         this.status = status;
+    }
+
+    public Order() {
+
     }
 
     //getters and setters

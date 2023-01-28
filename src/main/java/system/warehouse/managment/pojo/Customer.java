@@ -1,31 +1,39 @@
 package system.warehouse.managment.pojo;
 
+import jakarta.persistence.*;
+
 import java.util.List;
 
+@Entity
+@Table(name="customers")
 public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "name")
     private String name;
-    private String contactName;
+    @Column(name = "phone")
     private String phone;
+    @Column(name = "email")
     private String email;
+    @OneToMany(mappedBy = "orders")
     private List<Order> orders;
 
-    public Customer(Integer id, String name, String contactName, String phone, String email, List<Order> orders) {
+    public Customer(Integer id, String name, String phone, String email, List<Order> orders) {
         this.id = id;
         this.name = name;
-        this.contactName = contactName;
         this.phone = phone;
         this.email = email;
         this.orders = orders;
     }
 
+    public Customer() {
+
+    }
+
     //getters and setters
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -34,14 +42,6 @@ public class Customer {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getContactName() {
-        return contactName;
-    }
-
-    public void setContactName(String contactName) {
-        this.contactName = contactName;
     }
 
     public String getPhone() {

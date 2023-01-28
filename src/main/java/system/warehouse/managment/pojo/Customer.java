@@ -16,7 +16,7 @@ public class Customer {
     private String phone;
     @Column(name = "email")
     private String email;
-    @OneToMany(mappedBy = "orders")
+    @OneToMany(mappedBy = "customer")
     private List<Order> orders;
 
     public Customer(Integer id, String name, String phone, String email, List<Order> orders) {

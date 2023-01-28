@@ -13,7 +13,7 @@ public class Order {
     @Column(name = "order_number")
     private String orderNumber;
     @ManyToOne
-    @JoinColumn(name = "costumer_id")
+    @JoinColumn(name = "customer_id")
     private Customer customer;
     @OneToMany
     private List<Product> products;

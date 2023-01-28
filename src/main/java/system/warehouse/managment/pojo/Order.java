@@ -9,8 +9,15 @@ public class Order {
     private List<Product> products;
     private String status;
 
-    //getters and setters
+    public Order(Integer id, String orderNumber, Customer customer, List<Product> products, String status) {
+        this.id = id;
+        this.orderNumber = orderNumber;
+        this.customer = customer;
+        this.products = products;
+        this.status = status;
+    }
 
+    //getters and setters
     public Integer getId() {
         return id;
     }

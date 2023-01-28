@@ -1,18 +1,24 @@
 package system.warehouse.managment.pojo;
 
 public class Inventory {
-    private Long id;
+    private Integer id;
     private Product product;
     private Integer stock;
     private Integer onOrder;
 
-    //getters and setters
+    public Inventory(Integer id, Product product, Integer stock, Integer onOrder) {
+        this.id = id;
+        this.product = product;
+        this.stock = stock;
+        this.onOrder = onOrder;
+    }
 
-    public Long getId() {
+    //getters and setters
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -3,19 +3,28 @@ package system.warehouse.managment.pojo;
 import java.util.List;
 
 public class Customer {
-    private Long id;
+    private Integer id;
     private String name;
     private String contactName;
     private String phone;
     private String email;
     private List<Order> orders;
 
+    public Customer(Integer id, String name, String contactName, String phone, String email, List<Order> orders) {
+        this.id = id;
+        this.name = name;
+        this.contactName = contactName;
+        this.phone = phone;
+        this.email = email;
+        this.orders = orders;
+    }
+
     //getters and setters
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

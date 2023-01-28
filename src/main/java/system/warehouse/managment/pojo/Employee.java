@@ -8,12 +8,21 @@ public class Employee {
     private String email;
     private String role;
 
+    public Employee(Integer id, String name, String contactName, String phone, String email, String role) {
+        this.id = id;
+        this.name = name;
+        this.contactName = contactName;
+        this.phone = phone;
+        this.email = email;
+        this.role = role;
+    }
+
     //getters and setters
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

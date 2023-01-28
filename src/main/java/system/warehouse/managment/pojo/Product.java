@@ -3,9 +3,10 @@ package system.warehouse.managment.pojo;
 public class Product {
     private String name;
     private String description;
-    private double price;
-    private double measuringUnit;
-    private int stock;
+    private Integer skuNumber;
+    private Double price;
+    private Double measuringUnit;
+    private Integer stock;
 
     public String getName() {
         return name;
@@ -23,19 +24,11 @@ public class Product {
         this.description = description;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     public double getMeasuringUnit() {
         return measuringUnit;
     }
 
-    public void setMeasuringUnit(double measuringUnit) {
+    public void setMeasuringUnit(Double measuringUnit) {
         this.measuringUnit = measuringUnit;
     }
 
@@ -43,8 +36,23 @@ public class Product {
         return stock;
     }
 
-    public void setStock(int stock) {
+    public void setStock(Integer stock) {
         this.stock = stock;
     }
 
+    public Integer getSkuNumber() {
+        return skuNumber;
+    }
+
+    public void setSkuNumber(Integer skuNumber) {
+        this.skuNumber = skuNumber;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 }

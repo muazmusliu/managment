@@ -1,12 +1,26 @@
 package system.warehouse.managment.pojo;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="products")
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "description")
     private String description;
+    @Column(name = "sku_number")
     private Integer skuNumber;
+    @Column(name = "price")
     private Double price;
+
+    @Column(name = "measuring_unit")
     private Double measuringUnit;
+    @Column(name = "stock")
     private Integer stock;
 
     public Product(Integer id, String name, String description, Integer skuNumber, Double price, Double measuringUnit, Integer stock) {
@@ -18,6 +32,11 @@ public class Product {
         this.measuringUnit = measuringUnit;
         this.stock = stock;
     }
+
+    public Product() {
+
+    }
+
     public Integer getId() {
         return id;
     }

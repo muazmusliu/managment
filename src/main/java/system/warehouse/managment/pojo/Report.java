@@ -8,8 +8,14 @@ public class Report {
     private List<Order> sales;
     private List<Order> fulfillment;
 
-    //getters and setters
+    public Report(Integer id, List<Inventory> inventory, List<Order> sales, List<Order> fulfillment) {
+        this.id = id;
+        this.inventory = inventory;
+        this.sales = sales;
+        this.fulfillment = fulfillment;
+    }
 
+    //getters and setters
     public Integer getId() {
         return id;
     }

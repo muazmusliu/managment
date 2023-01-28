@@ -1,12 +1,30 @@
 package system.warehouse.managment.pojo;
 
 public class Product {
+    private Integer id;
     private String name;
     private String description;
     private Integer skuNumber;
     private Double price;
     private Double measuringUnit;
     private Integer stock;
+
+    public Product(Integer id, String name, String description, Integer skuNumber, Double price, Double measuringUnit, Integer stock) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.skuNumber = skuNumber;
+        this.price = price;
+        this.measuringUnit = measuringUnit;
+        this.stock = stock;
+    }
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

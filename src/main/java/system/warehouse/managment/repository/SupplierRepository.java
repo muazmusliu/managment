@@ -10,5 +10,5 @@ import java.util.Optional;
 @Repository
 public interface SupplierRepository extends JpaRepository<Supplier, Integer> {
     List<Supplier> findAll();
-    Optional<Supplier> findById(Integer id);
+    Supplier findSupplierById(Integer id);
 }

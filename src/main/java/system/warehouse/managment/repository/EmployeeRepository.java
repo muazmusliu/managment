@@ -1,16 +1,14 @@
 package system.warehouse.managment.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import system.warehouse.managment.pojo.Employee;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
+@Repository
+public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     Optional<Employee> findById(Integer id);
-    Employee findByName(String name);
     List<Employee> findAll();
-    List<Employee> findByRole(String role);
-    List<Employee> findByEmail(String email);
-    List<Employee> findTop10BySalary(Integer salary);
 }

@@ -1,21 +1,36 @@
 package system.warehouse.managment.pojo;
 
+import jakarta.persistence.*;
+
 import java.util.List;
 
+@Entity
+@Table(name="suppliers")
 public class Supplier {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name="name")
     private String name;
+    @Column(name = "contact")
     private String contact;
+
+    @Column(name="address")
     private String address;
-    private List<Product> products;
+
+    @OneToMany
+    private List<Inventory> inventory;
     private String payment;
 
-    public Supplier(Integer id, String name, String contact, String address, List<Product> products, String payment) {
+    public Supplier() {
+    }
+
+    public Supplier(Integer id, String name, String contact, String address, List<Inventory> inventory, String payment) {
         this.id = id;
         this.name = name;
         this.contact = contact;
         this.address = address;
-        this.products = products;
+        this.inventory = inventory;
         this.payment = payment;
     }
 
@@ -53,12 +68,12 @@ public class Supplier {
         this.address = address;
     }
 
-    public List<Product> getProducts() {
-        return products;
+    public List<Inventory> getInventory() {
+        return inventory;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setInventory(List<Inventory> inventory) {
+        this.inventory = inventory;
     }
 
     public String getPayment() {

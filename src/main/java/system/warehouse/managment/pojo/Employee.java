@@ -17,9 +17,9 @@ public class Employee {
     @Column(name = "role")
     private String role;
     @Column(name = "salary")
-    private Integer salary;
+    private Double salary;
 
-    public Employee(Integer id, String name, String phone, String email, String role, Integer salary) {
+    public Employee(Integer id, String name, String phone, String email, String role, Double salary) {
         this.id = id;
         this.name = name;
         this.phone = phone;
@@ -71,5 +71,13 @@ public class Employee {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Double salary) {
+        this.salary = salary;
     }
 }

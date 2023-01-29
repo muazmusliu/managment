@@ -11,19 +11,25 @@ public class Inventory {
     @Column(name = "location")
     private String location;
     @ManyToOne
-    @Column(name = "product_id")
+    @JoinColumn(name = "product_id")
     private Product product;
     @Column(name = "stock")
     private Integer stock;
     @Column(name = "on_order")
     private Integer onOrder;
 
-    public Inventory(Integer id, String location, Product product, Integer stock, Integer onOrder) {
+    @ManyToOne
+    @JoinColumn(name="supplier_id")
+    private Supplier supplier;
+
+
+    public Inventory(Integer id, String location, Product product, Integer stock, Integer onOrder, Supplier supplier) {
         this.id = id;
         this.location = location;
         this.product = product;
         this.stock = stock;
         this.onOrder = onOrder;
+        this.supplier = supplier;
     }
 
     public Inventory() {
@@ -69,5 +75,13 @@ public class Inventory {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
     }
 }

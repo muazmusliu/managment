@@ -15,16 +15,17 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
-    @OneToMany
-    private List<Product> products;
+
+    @OneToMany(mappedBy = "order")
+    private List<OrderProduct> orderProducts;
     @Column(name = "status")
     private String status;
 
-    public Order(Integer id, String orderNumber, Customer customer, List<Product> products, String status) {
+    public Order(Integer id, String orderNumber, Customer customer, List<OrderProduct> orderProducts, String status) {
         this.id = id;
         this.orderNumber = orderNumber;
         this.customer = customer;
-        this.products = products;
+        this.orderProducts = orderProducts;
         this.status = status;
     }
 
@@ -57,12 +58,12 @@ public class Order {
         this.customer = customer;
     }
 
-    public List<Product> getProducts() {
-        return products;
+    public List<OrderProduct> getOrderProducts() {
+        return orderProducts;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setOrderProducts(List<OrderProduct> orderProducts) {
+        this.orderProducts = orderProducts;
     }
 
     public String getStatus() {

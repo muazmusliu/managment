@@ -19,8 +19,7 @@ public class Employee {
     @Column(name = "salary")
     private Double salary;
 
-    public Employee(Integer id, String name, String phone, String email, String role, Double salary) {
-        this.id = id;
+    public Employee(String name, String phone, String email, String role, Double salary) {
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -35,10 +34,6 @@ public class Employee {
     //getters and setters
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getName() {

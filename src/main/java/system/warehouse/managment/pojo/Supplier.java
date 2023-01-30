@@ -25,8 +25,7 @@ public class Supplier {
     public Supplier() {
     }
 
-    public Supplier(Integer id, String name, String contact, String address, List<Inventory> inventory, String payment) {
-        this.id = id;
+    public Supplier( String name, String contact, String address, List<Inventory> inventory, String payment) {
         this.name = name;
         this.contact = contact;
         this.address = address;
@@ -40,9 +39,6 @@ public class Supplier {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

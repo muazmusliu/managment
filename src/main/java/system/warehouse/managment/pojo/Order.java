@@ -21,8 +21,7 @@ public class Order {
     @Column(name = "status")
     private String status;
 
-    public Order(Integer id, String orderNumber, Customer customer, List<OrderProduct> orderProducts, String status) {
-        this.id = id;
+    public Order(String orderNumber, Customer customer, List<OrderProduct> orderProducts, String status) {
         this.orderNumber = orderNumber;
         this.customer = customer;
         this.orderProducts = orderProducts;

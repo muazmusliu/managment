@@ -23,8 +23,7 @@ public class Inventory {
     private Supplier supplier;
 
 
-    public Inventory(Integer id, String location, Product product, Integer stock, Integer onOrder, Supplier supplier) {
-        this.id = id;
+    public Inventory(String location, Product product, Integer stock, Integer onOrder, Supplier supplier) {
         this.location = location;
         this.product = product;
         this.stock = stock;
@@ -39,10 +38,6 @@ public class Inventory {
     //getters and setters
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Product getProduct() {

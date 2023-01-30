@@ -19,8 +19,7 @@ public class Product {
     @Column(name = "measuring_unit")
     private Double measuringUnit;
 
-    public Product(Integer id, String name, String description, Integer skuNumber, Double price, Double measuringUnit) {
-        this.id = id;
+    public Product( String name, String description, Integer skuNumber, Double price, Double measuringUnit) {
         this.name = name;
         this.description = description;
         this.skuNumber = skuNumber;
@@ -34,10 +33,6 @@ public class Product {
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getName() {

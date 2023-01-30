@@ -25,11 +25,8 @@ public class DefaultEmployeeService implements EmployeeService{
     }
 
     @Override
-    public Employee create(String name, String phone, String role) {
-        Employee employee = new Employee();
-        employee.setName(name);
-        employee.setPhone(phone);
-        employee.setRole(role);
+    public Employee create(String name, String phone, String email, String role, Double salary) {
+        Employee employee = new Employee(name, phone, email, role, salary);
 
         return employeeRepository.save(employee);
     }

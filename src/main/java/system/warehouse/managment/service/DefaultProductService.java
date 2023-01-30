@@ -28,14 +28,9 @@ public class DefaultProductService implements ProductService{
     }
 
     @Override
-    public Product create(String name, String description, Double price) {
-        //Inventory inventory = inventoryRepository.findInventoryById(findOne);
+    public Product create(String name, String description, Integer skuNumber, Double price, Double measuringUnit) {
 
-        Product product = new Product();
-        product.setName(name);
-        product.setDescription(description);
-        product.setPrice(price);
-        //product.setProduct(inventory)...
+        Product product = new Product(name,description,skuNumber,price,measuringUnit);
 
         return productRepository.save(product);
     }

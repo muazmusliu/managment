@@ -7,7 +7,7 @@ import java.util.List;
 public interface EmployeeService {
     List<Employee> findAll();
     Employee findOneById(Integer id);
-    Employee create(String name, String phone,String role);
+    Employee create(String name, String phone, String email, String role, Double salary);
     Employee edit(Integer id, String name, String phone,String role);
     void delete(Integer id);
 }

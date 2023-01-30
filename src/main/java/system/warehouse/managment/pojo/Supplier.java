@@ -14,22 +14,20 @@ public class Supplier {
     private String name;
     @Column(name = "contact")
     private String contact;
-
     @Column(name="address")
     private String address;
-
-    @OneToMany
+    @OneToMany(mappedBy = "supplier")
     private List<Inventory> inventory;
+    @Column(name="payment")
     private String payment;
 
     public Supplier() {
     }
 
-    public Supplier( String name, String contact, String address, List<Inventory> inventory, String payment) {
+    public Supplier( String name, String contact, String address, String payment) {
         this.name = name;
         this.contact = contact;
         this.address = address;
-        this.inventory = inventory;
         this.payment = payment;
     }
 

@@ -24,22 +24,20 @@ public class DefaultSupplierService implements SupplierService{
     }
 
     @Override
-    public Supplier create(String name, String contact, String address) {
-        Supplier supplier = new Supplier();
-        supplier.setName(name);
-        supplier.setContact(contact);
-        supplier.setAddress(address);
+    public Supplier create(String name, String contact, String address, String payment) {
+        Supplier supplier = new Supplier(name, contact, address, payment);
 
         return supplierRepository.save(supplier);
     }
 
     @Override
-    public Supplier edit(Integer id, String name, String contact, String address) {
+    public Supplier edit(Integer id, String name, String contact, String address, String payment) {
         Supplier supplier = supplierRepository.findSupplierById(id);
         if (supplier != null) {
             supplier.setName(name);
             supplier.setContact(contact);
             supplier.setAddress(address);
+            supplier.setPayment(payment);
             return supplierRepository.save(supplier);
         }
         return null;

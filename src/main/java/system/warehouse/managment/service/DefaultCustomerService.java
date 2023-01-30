@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import system.warehouse.managment.pojo.Customer;
 import system.warehouse.managment.repository.CustomerRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -27,10 +28,7 @@ public class DefaultCustomerService implements CustomerService {
     @Override
     public Customer create(String name, String phone, String email) {
 
-        Customer customer = new Customer();
-        customer.setName(name);
-        customer.setPhone(phone);
-        customer.setEmail(email);
+        Customer customer = new Customer(name,phone,email,new ArrayList<>());
 
         return customerRepository.save(customer);
     }

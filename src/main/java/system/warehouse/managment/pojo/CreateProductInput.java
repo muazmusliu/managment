@@ -3,14 +3,14 @@ package system.warehouse.managment.pojo;
 public class CreateProductInput {
     private String name;
     private String description;
-    private Integer skuNumber;
+    private String skuNumber;
     private Double price;
     private Double measuringUnit;
 
     public CreateProductInput() {
     }
 
-    public CreateProductInput(String name, String description, Integer skuNumber, Double price, Double measuringUnit) {
+    public CreateProductInput(String name, String description, String skuNumber, Double price, Double measuringUnit) {
         this.name = name;
         this.description = description;
         this.skuNumber = skuNumber;
@@ -34,11 +34,11 @@ public class CreateProductInput {
         this.description = description;
     }
 
-    public Integer getSkuNumber() {
+    public String getSkuNumber() {
         return skuNumber;
     }
 
-    public void setSkuNumber(Integer skuNumber) {
+    public void setSkuNumber(String skuNumber) {
         this.skuNumber = skuNumber;
     }
 

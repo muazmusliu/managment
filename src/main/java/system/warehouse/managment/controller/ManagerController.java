@@ -35,7 +35,10 @@ public class ManagerController {
         return DefaultProductService.findOneById(id);
     }
     // Products by sku
-
+    @GetMapping("/product/{skuNumber}")
+    public List<Product> getProduct(@PathVariable String skuNumber){
+        return DefaultProductService.findBySkuNumber(skuNumber);
+    }
 
     //POST
     // Create product
@@ -43,7 +46,7 @@ public class ManagerController {
     public Product createProduct(@RequestBody CreateProductInput cpi){
         String name= cpi.getName();
         String description = cpi.getDescription();
-        Integer skuNumber = cpi.getSkuNumber();
+        String skuNumber = cpi.getSkuNumber();
         Double price = cpi.getPrice();
         Double measuringUnit = cpi.getMeasuringUnit();
         return DefaultProductService.create(name,description,skuNumber,price,measuringUnit);

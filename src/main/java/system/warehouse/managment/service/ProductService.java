@@ -7,7 +7,8 @@ import java.util.List;
 public interface ProductService {
     List<Product> findAll();
     Product findOneById(Integer id);
-    Product create(String name, String description, Integer skuNumber, Double price, Double measuringUnit);
+    Product create(String name, String description, String skuNumber, Double price, Double measuringUnit);
     Product edit(Integer id, String name, String description, Double price);
     void delete(Integer id);
+    List<Product> findBySkuNumber(String skuNumber);
 }

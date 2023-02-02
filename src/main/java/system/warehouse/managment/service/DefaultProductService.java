@@ -28,7 +28,7 @@ public class DefaultProductService implements ProductService{
     }
 
     @Override
-    public Product create(String name, String description, Integer skuNumber, Double price, Double measuringUnit) {
+    public Product create(String name, String description, String skuNumber, Double price, Double measuringUnit) {
 
         Product product = new Product(name,description,skuNumber,price,measuringUnit);
 
@@ -50,5 +50,10 @@ public class DefaultProductService implements ProductService{
     @Override
     public void delete(Integer id) {
 
+    }
+
+    @Override
+    public List<Product> findBySkuNumber(String skuNumber){
+        return productRepository.findBySkuNumber(skuNumber);
     }
 }

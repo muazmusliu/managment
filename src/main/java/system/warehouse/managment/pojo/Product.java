@@ -13,13 +13,13 @@ public class Product {
     @Column(name = "description", length = 500)
     private String description;
     @Column(name = "sku_number")
-    private Integer skuNumber;
+    private String skuNumber;
     @Column(name = "price")
     private Double price;
     @Column(name = "measuring_unit")
     private Double measuringUnit;
 
-    public Product( String name, String description, Integer skuNumber, Double price, Double measuringUnit) {
+    public Product(String name, String description, String skuNumber, Double price, Double measuringUnit) {
         this.name = name;
         this.description = description;
         this.skuNumber = skuNumber;
@@ -59,11 +59,11 @@ public class Product {
         this.measuringUnit = measuringUnit;
     }
 
-    public Integer getSkuNumber() {
+    public String getSkuNumber() {
         return skuNumber;
     }
 
-    public void setSkuNumber(Integer skuNumber) {
+    public void setSkuNumber(String skuNumber) {
         this.skuNumber = skuNumber;
     }
 

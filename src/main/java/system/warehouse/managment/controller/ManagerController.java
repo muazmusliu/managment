@@ -35,7 +35,7 @@ public class ManagerController {
         return DefaultProductService.findOneById(id);
     }
     // Products by sku
-    @GetMapping("/product/{skuNumber}")
+    @GetMapping("/product/sku_number/{skuNumber}")
     public List<Product> getProduct(@PathVariable String skuNumber){
         return DefaultProductService.findBySkuNumber(skuNumber);
     }

@@ -24,14 +24,14 @@ public class DefaultSupplierService implements SupplierService{
     }
 
     @Override
-    public Supplier create(String name, String contact, String address, String payment) {
+    public Supplier create(String name, String contact, String address, Boolean payment) {
         Supplier supplier = new Supplier(name, contact, address, payment);
 
         return supplierRepository.save(supplier);
     }
 
     @Override
-    public Supplier edit(Integer id, String name, String contact, String address, String payment) {
+    public Supplier edit(Integer id, String name, String contact, String address, Boolean payment) {
         Supplier supplier = supplierRepository.findSupplierById(id);
         if (supplier != null) {
             supplier.setName(name);
@@ -46,5 +46,10 @@ public class DefaultSupplierService implements SupplierService{
     @Override
     public void delete(Integer id) {
         supplierRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Supplier> findByPayment(Boolean payment) {
+        return supplierRepository.findByPayment(payment);
     }
 }

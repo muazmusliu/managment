@@ -11,4 +11,5 @@ import java.util.Optional;
 public interface SupplierRepository extends JpaRepository<Supplier, Integer> {
     List<Supplier> findAll();
     Supplier findSupplierById(Integer id);
+    List<Supplier> findByPayment(Boolean payment);
 }

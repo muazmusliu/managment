@@ -1,42 +1,24 @@
 package system.warehouse.managment.pojo;
 
-import jakarta.persistence.*;
-
 import java.util.List;
 
-@Entity
-@Table(name="suppliers")
-public class Supplier {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @Column(name="name")
+public class CreateSupplierInput {
     private String name;
-    @Column(name = "contact")
     private String contact;
-    @Column(name="address")
     private String address;
-    @OneToMany(mappedBy = "supplier")
     private List<Inventory> inventory;
-    @Column(name="payment")
     private Boolean payment;
 
-    public Supplier() {
+    public CreateSupplierInput() {
     }
 
-    public Supplier(String name, String contact, String address, Boolean payment) {
+    public CreateSupplierInput(String name, String contact, String address, List<Inventory> inventory, Boolean payment) {
         this.name = name;
         this.contact = contact;
         this.address = address;
+        this.inventory = inventory;
         this.payment = payment;
     }
-
-    //getters and setters
-
-    public Integer getId() {
-        return id;
-    }
-
 
     public String getName() {
         return name;

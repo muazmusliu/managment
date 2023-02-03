@@ -1,4 +1,4 @@
-package system.warehouse.managment.pojo;
+package system.warehouse.managment.payload;
 
 public class CreateProductInput {
     private String name;

@@ -1,8 +1,13 @@
 package system.warehouse.managment.pojo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
-import java.util.List;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="orders")
@@ -16,15 +21,15 @@ public class Order {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @OneToMany(mappedBy = "order")
-    private List<OrderProduct> orderProducts;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @JsonBackReference
+    private Set<OrderProduct> orderProducts = new HashSet<OrderProduct>();
     @Column(name = "status")
     private String status;
 
-    public Order(String orderNumber, Customer customer, List<OrderProduct> orderProducts, String status) {
+    public Order(String orderNumber, Customer customer, String status) {
         this.orderNumber = orderNumber;
         this.customer = customer;
-        this.orderProducts = orderProducts;
         this.status = status;
     }
 
@@ -57,11 +62,10 @@ public class Order {
         this.customer = customer;
     }
 
-    public List<OrderProduct> getOrderProducts() {
+    public Set<OrderProduct> getOrderProducts() {
         return orderProducts;
     }
-
-    public void setOrderProducts(List<OrderProduct> orderProducts) {
+    public void setOrderProducts(Set<OrderProduct> orderProducts) {
         this.orderProducts = orderProducts;
     }
 

@@ -39,9 +39,9 @@ public class DefaultProductService implements ProductService{
     public Product edit(Integer id, String name, String description, Double price) {
         Product product = productRepository.findProductById(id);
         if (product != null) {
-            product.setName(name);
-            product.setDescription(description);
-            product.setPrice(price);
+            if(name != null) product.setName(name);
+            if(description!=null) product.setDescription(description);
+            if(price!=null) product.setPrice(price);
             return productRepository.save(product);
         }
         return null;
@@ -49,7 +49,7 @@ public class DefaultProductService implements ProductService{
 
     @Override
     public void delete(Integer id) {
-
+        productRepository.deleteById(id);
     }
 
     @Override

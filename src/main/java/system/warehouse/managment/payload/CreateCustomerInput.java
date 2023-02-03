@@ -1,0 +1,36 @@
+package system.warehouse.managment.payload;
+
+import java.util.List;
+
+public class CreateCustomerInput {
+    String name;
+    String phone;
+    String email;
+
+    public CreateCustomerInput() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+}

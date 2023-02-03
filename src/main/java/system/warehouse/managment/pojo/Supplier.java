@@ -1,7 +1,9 @@
 package system.warehouse.managment.pojo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,8 +18,8 @@ public class Supplier {
     private String contact;
     @Column(name="address")
     private String address;
-    @OneToMany(mappedBy = "supplier")
-    private List<Inventory> inventory;
+    @OneToMany(mappedBy = "supplier", cascade = CascadeType.ALL)
+    private List<Inventory> inventory= new ArrayList<>();
     @Column(name="payment")
     private Boolean payment;
 

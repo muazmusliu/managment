@@ -34,7 +34,7 @@ public class DefaultInventoryService implements InventoryService{
     }
 
     @Override
-    public Inventory create(String location, Integer product_id, Integer stock, Integer supplier_id) {
+    public Inventory create(String location, Integer product_id, Integer stock,Integer onOrder, Integer supplier_id) {
         Product product = productRepository.findProductById(product_id);
         Supplier supplier = supplierRepository.findSupplierById(supplier_id);
         Inventory inventory = new Inventory(location, product, stock, 0, supplier);

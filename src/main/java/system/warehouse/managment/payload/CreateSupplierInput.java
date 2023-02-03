@@ -1,22 +1,24 @@
-package system.warehouse.managment.pojo;
+package system.warehouse.managment.payload;
 
+import system.warehouse.managment.pojo.Inventory;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class CreateSupplierInput {
     private String name;
     private String contact;
     private String address;
-    private List<Inventory> inventory;
+
     private Boolean payment;
 
     public CreateSupplierInput() {
     }
 
-    public CreateSupplierInput(String name, String contact, String address, List<Inventory> inventory, Boolean payment) {
+    public CreateSupplierInput(String name, String contact, String address, Boolean payment) {
         this.name = name;
         this.contact = contact;
         this.address = address;
-        this.inventory = inventory;
         this.payment = payment;
     }
 
@@ -42,14 +44,6 @@ public class CreateSupplierInput {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public List<Inventory> getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(List<Inventory> inventory) {
-        this.inventory = inventory;
     }
 
     public Boolean getPayment() {

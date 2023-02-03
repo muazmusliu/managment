@@ -19,11 +19,10 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private List<Order> orders;
 
-    public Customer(String name, String phone, String email, List<Order> orders) {
+    public Customer(String name, String phone, String email) {
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.orders = orders;
     }
 
     public Customer() {

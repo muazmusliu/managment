@@ -28,7 +28,7 @@ public class DefaultCustomerService implements CustomerService {
     @Override
     public Customer create(String name, String phone, String email) {
 
-        Customer customer = new Customer(name,phone,email,new ArrayList<>());
+        Customer customer = new Customer(name,phone,email);
 
         return customerRepository.save(customer);
     }

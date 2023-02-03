@@ -1,6 +1,12 @@
 package system.warehouse.managment.pojo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="products")
@@ -18,6 +24,11 @@ public class Product {
     private Double price;
     @Column(name = "measuring_unit")
     private Double measuringUnit;
+
+
+    @OneToMany(mappedBy = "product")
+    @JsonBackReference
+    private Set<OrderProduct> orderProducts = new HashSet<OrderProduct>();
 
     public Product(String name, String description, String skuNumber, Double price, Double measuringUnit) {
         this.name = name;

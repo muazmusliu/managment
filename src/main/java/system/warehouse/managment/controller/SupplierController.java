@@ -3,8 +3,11 @@ package system.warehouse.managment.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import system.warehouse.managment.pojo.CreateSupplierInput;
+import system.warehouse.managment.payload.CreateInventoryInput;
+import system.warehouse.managment.payload.CreateSupplierInput;
+import system.warehouse.managment.pojo.Inventory;
 import system.warehouse.managment.pojo.Supplier;
+import system.warehouse.managment.service.DefaultInventoryService;
 import system.warehouse.managment.service.DefaultSupplierService;
 
 import java.util.List;
@@ -13,23 +16,27 @@ import java.util.List;
 public class SupplierController {
 
     @Autowired
-    DefaultSupplierService DefaultSupplierService;
-
-
+    DefaultSupplierService defaultSupplierService;
+    @Autowired
+    DefaultInventoryService defaultInventoryService;
     //GET
-    @GetMapping("/supplier")
+    @GetMapping("/suppliers")
     public List<Supplier> getSupplier(){
-        return DefaultSupplierService.findAll();
+        return defaultSupplierService.findAll();
     }
 
     @GetMapping("/supplier/{id}")
     public Supplier getSupplierById(@PathVariable Integer id){
-        return DefaultSupplierService.findOneById(id);
+        return defaultSupplierService.findOneById(id);
     }
 
-    @GetMapping("/supplier")
+    @GetMapping("/supplier/paid")
     public List<Supplier> getPaidSuppliers(@RequestParam Boolean payment){
-        return DefaultSupplierService.findByPayment(payment);
+        return defaultSupplierService.findByPayment(payment);
+    }
+    @GetMapping("/inventories")
+    public List<Inventory> getInventory(){
+        return defaultInventoryService.findAll();
     }
 
 
@@ -40,7 +47,17 @@ public class SupplierController {
         String contact = csi.getContact();
         String address = csi.getAddress();
         Boolean payment = csi.getPayment();
-        return DefaultSupplierService.create(name,contact,address,payment);
+        return defaultSupplierService.create(name,contact,address,payment);
+    }
+
+    @PostMapping("/inventory")
+    public Inventory createInventory(@RequestBody CreateInventoryInput cii){
+        String location= cii.getLocation();
+        Integer productId=cii.getProductId();
+        Integer stock=cii.getStock();
+        Integer onOrder=cii.getOnOrder();
+        Integer supplierId=cii.getSupplierId();
+        return defaultInventoryService.create(location,productId,stock,onOrder,supplierId);
     }
 
     //PUT

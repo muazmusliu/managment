@@ -1,5 +1,7 @@
 package system.warehouse.managment.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -19,6 +21,7 @@ public class Inventory {
     private Integer onOrder;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name="supplier_id")
     private Supplier supplier;
 

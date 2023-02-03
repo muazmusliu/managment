@@ -3,9 +3,12 @@ package system.warehouse.managment.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import system.warehouse.managment.payload.CreateEmployeeInput;
 import system.warehouse.managment.payload.CreateProductInput;
 import system.warehouse.managment.payload.EditProductInput;
+import system.warehouse.managment.pojo.Employee;
 import system.warehouse.managment.pojo.Product;
+import system.warehouse.managment.service.DefaultEmployeeService;
 import system.warehouse.managment.service.DefaultProductService;
 
 
@@ -16,7 +19,8 @@ public class ManagerController {
     @Autowired
     DefaultProductService defaultProductService;
 
-
+    @Autowired
+    DefaultEmployeeService defaultEmployeeService;
     // Auth
     // Login
 
@@ -40,7 +44,10 @@ public class ManagerController {
     public List<Product> getProductBySku(@PathVariable String skuNumber){
         return defaultProductService.findBySkuNumber(skuNumber);
     }
-
+    @GetMapping("/employees")
+    public List<Employee> getEmployee(){
+        return defaultEmployeeService.findAll();
+    }
     //POST
     // Create product
     @PostMapping("/product/post")
@@ -51,6 +58,16 @@ public class ManagerController {
         Double price = cpi.getPrice();
         Double measuringUnit = cpi.getMeasuringUnit();
         return defaultProductService.create(name,description,skuNumber,price,measuringUnit);
+    }
+
+    @PostMapping("/employee")
+    public Employee createEmployee(@RequestBody CreateEmployeeInput cei){
+        String name = cei.getName();
+        String phone = cei.getPhone();
+        String email = cei.getEmail();
+        String role = cei.getRole();
+        Double salary = cei.getSalary();
+        return defaultEmployeeService.create(name,phone, email,role,salary);
     }
     //PUT
     //Update product
@@ -71,6 +88,7 @@ public class ManagerController {
          defaultProductService.delete(id);
          return defaultProductService.findAll();
     }
+
     // Delete account
 
 }

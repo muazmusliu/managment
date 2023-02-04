@@ -5,12 +5,12 @@ public class CreateProductInput {
     private String description;
     private String skuNumber;
     private Double price;
-    private Double measuringUnit;
+    private String measuringUnit;
 
     public CreateProductInput() {
     }
 
-    public CreateProductInput(String name, String description, String skuNumber, Double price, Double measuringUnit) {
+    public CreateProductInput(String name, String description, String skuNumber, Double price, String measuringUnit) {
         this.name = name;
         this.description = description;
         this.skuNumber = skuNumber;
@@ -50,11 +50,11 @@ public class CreateProductInput {
         this.price = price;
     }
 
-    public Double getMeasuringUnit() {
+    public String getMeasuringUnit() {
         return measuringUnit;
     }
 
-    public void setMeasuringUnit(Double measuringUnit) {
+    public void setMeasuringUnit(String measuringUnit) {
         this.measuringUnit = measuringUnit;
     }
 }

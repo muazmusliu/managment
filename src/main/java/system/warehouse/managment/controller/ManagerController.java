@@ -56,7 +56,7 @@ public class ManagerController {
         String description = cpi.getDescription();
         String skuNumber = cpi.getSkuNumber();
         Double price = cpi.getPrice();
-        Double measuringUnit = cpi.getMeasuringUnit();
+        String measuringUnit = cpi.getMeasuringUnit();
         return defaultProductService.create(name,description,skuNumber,price,measuringUnit);
     }
 

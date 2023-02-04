@@ -28,7 +28,7 @@ public class DefaultProductService implements ProductService{
     }
 
     @Override
-    public Product create(String name, String description, String skuNumber, Double price, Double measuringUnit) {
+    public Product create(String name, String description, String skuNumber, Double price, String measuringUnit) {
 
         Product product = new Product(name,description,skuNumber,price,measuringUnit);
 
